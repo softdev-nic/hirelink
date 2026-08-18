@@ -1,7 +1,10 @@
 import axios from "axios";
+import { meta } from "eslint-plugin-react-hooks";
+
+const BASEURL = import.meta.env.VITE_BASEURL || "http://localhost:3000/api";
 
 const privateAPI = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: BASEURL,
 });
 
 privateAPI.interceptors.request.use((req) => {
@@ -14,6 +17,6 @@ privateAPI.interceptors.request.use((req) => {
   return req;
 }); 
 const publicAPI = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: BASEURL,
 });
 export  {privateAPI, publicAPI};

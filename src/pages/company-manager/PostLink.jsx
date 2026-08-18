@@ -1,5 +1,5 @@
 import React from "react";
-import {publicAPI} from "../../Services/API";
+import API from "../../Services/API";
  
 const PostLink = () => {
 const [CompanyLead, setCompanyLead] = React.useState({
@@ -14,7 +14,7 @@ const [CompanyLead, setCompanyLead] = React.useState({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await publicAPI.post("/add-company", CompanyLead);
+      const response = await API.publicAPI.post("/add-company", CompanyLead);
       console.log("Response:", response.data);
       
     } catch (error) {
@@ -45,7 +45,7 @@ const [CompanyLead, setCompanyLead] = React.useState({
             onChange={handleChange}
           />
         </div> 
-        label
+        
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
