@@ -3,6 +3,7 @@
  import Login from './pages/reg/Login'
  import ForgotPassword from './pages/reg/ForgotPassword'
  import ResetPassword from './pages/reg/ReserPassword'
+ import Home from './pages/Home'
  import {Navigate,Route, Routes} from "react-router-dom"
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="*" element={<Navigate to="/login" replace />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
+      <Route path="/home" element={<Home />} />
     </Routes>
   );
 }

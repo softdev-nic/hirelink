@@ -1,18 +1,20 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { publicAPI } from "../../Services/API";
+import { useNavigate } from "react-router-dom";
 
 function ResetPassword() {
 	const { token } = useParams();
 	const [password, setPassword] = React.useState("");
 	const [message, setMessage] = React.useState("");
-
+    const Navigate = useNavigate()
 	const handleSubmit = async (event) => {
-		event.preventDefault();
+		event.preventDefault(); 
 
 		try {
 			await publicAPI.post(`/api/reset-password/${token}`, { password });
 			setMessage("Password reset successfully.");
+            Navigate('/login')
 		} catch (error) {
 			setMessage(error.response?.data?.message || "Unable to reset password.");
 		}
