@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../../Services/API";
+import {publicAPI} from "../../Services/API";
  
 const PostLink = () => {
 const [CompanyLead, setCompanyLead] = React.useState({
@@ -14,7 +14,7 @@ const [CompanyLead, setCompanyLead] = React.useState({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await API.publicAPI.post("/add-company", CompanyLead);
+      const response = await publicAPI.post("/api/add-company", CompanyLead);
       console.log("Response:", response.data);
       
     } catch (error) {
