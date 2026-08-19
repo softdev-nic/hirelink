@@ -1,5 +1,5 @@
 import React from "react";
-import {publicAPI} from "../../Services/API";
+import {publicAPI} from "../Services/API"
  
 const PostLink = () => {
 const [CompanyLead, setCompanyLead] = React.useState({

@@ -1,3 +1,5 @@
+import axios from "axios";
+ const BASEURL = import.meta.env.VITE_BASEURL
  const privateAPI = axios.create({
   baseURL: BASEURL,
 });
