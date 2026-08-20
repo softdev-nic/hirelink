@@ -8,11 +8,11 @@
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/" element={loggedIn? <Navigate to="/home" replace/> : <Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Registration />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route path="*" element={} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/home" element={<Home />} />
     </Routes>

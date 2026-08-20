@@ -20,6 +20,7 @@ const Login = () => {
 			const response = await publicAPI.post("/api/login", formData);
 			setMessage("Login successful.");
             localStorage.setItem("auth-token", response.data.token)
+            localStorage.setItem("loggedIn",true)
 		} catch (error) {
 			setMessage(error.response?.data?.message || "Unable to log in.");
 		}
