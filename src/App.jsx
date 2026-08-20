@@ -5,14 +5,22 @@
  import ResetPassword from './pages/reg/ReserPassword'
  import Home from './pages/Home'
  import {Navigate,Route, Routes} from "react-router-dom"
+
 function App() {
+  const [IsLoggedIn,setIsLoggedIn] = React.useState(false)
+  const getLoggenIn = ()=>{
+    setIsLoggedIn(localStorage.getItem("loggenIn"))
+  }
+  React.useEffect(()=>{
+    getLoggenIn
+  },[])
   return (
     <Routes>
-      <Route path="/" element={loggedIn? <Navigate to="/home" replace/> : <Navigate to="/login" replace />} />
+      <Route path="/" element={IsLoggedIn? <Navigate to="/home" replace/> : <Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Registration />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="*" element={} />
+      {/* <Route path="*" element={} /> */}
       <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/home" element={<Home />} />
     </Routes>
