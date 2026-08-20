@@ -1,5 +1,6 @@
 import React from "react";
 import { publicAPI } from "../../Services/API";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 	const [formData, setFormData] = React.useState({
@@ -69,6 +70,9 @@ const Login = () => {
 						required
 					/>
 				</div>
+                <div className="text-blue-500">
+                    <Link to="/forgot-password"><p>Forget password?</p></Link>
+                </div>
 
 				<button
 					className="w-full rounded bg-blue-600 px-4 py-2 font-bold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
@@ -76,7 +80,13 @@ const Login = () => {
 				>
 					Log in
 				</button>
+                     <div className=" text-bold ">
+                  <p>
+                    Do not have account 
+                    <Link to="/register" className="text-blue-500 p-2">Sign up</Link>
+                  </p>
 
+                </div>
 				{message && (
 					<p className="mt-4 text-center text-sm text-slate-600" role="status">
 						{message}
