@@ -34,7 +34,7 @@ function Home() {
 
 	React.useEffect(() => {
 		getData();
-	}, []);
+	}, [mails]);
     const deleteMail = async(mailId)=>{
 		try{
 

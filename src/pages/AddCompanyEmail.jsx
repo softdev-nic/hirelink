@@ -9,7 +9,7 @@ function AddCompanyEmail() {
       try{
         const response = await publicAPI.post("/api/add-company",{companyName,email})
       }catch(error){
-        console.log({error:error.message})
+        console.log({error})
       }
 		
 	};
