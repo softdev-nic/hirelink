@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { publicAPI } from "../Services/API";
 import Mail from "../component/Mail";
 import GeneralPopUp from "../component/GeneralPopUp";
-import { useNavigate,replace } from "react-router-dom";
+import Navbar from "../component/Navbar";
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
@@ -70,6 +71,7 @@ function Home() {
 
 	return (
 		<main className="min-h-screen bg-slate-100 px-4 py-8 sm:px-8">
+			<Navbar />
 			<div className="mx-auto max-w-6xl">
 				<header className="mb-8 flex items-center justify-between">
 					<div>
