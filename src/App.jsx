@@ -4,6 +4,7 @@ import Login from "./pages/reg/Login";
 import ForgotPassword from "./pages/reg/ForgotPassword";
 import ResetPassword from "./pages/reg/ReserPassword";
 import Home from "./pages/Home";
+import AddCompanyEmail from "./pages/AddCompanyEmail";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <Route path="/register" element={<Registration />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
+       <Route path="/post-email" element={<AddCompanyEmail/>}/>
       <Route path="/home" element={<Home />} />
     </Routes>
   );

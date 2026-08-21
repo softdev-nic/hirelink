@@ -1,8 +1,9 @@
 import React from "react";
 import { publicAPI } from "../../Services/API";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+	const navigate = useNavigate();
 	const [formData, setFormData] = React.useState({
 		email: "",
 		password: "",
@@ -22,6 +23,8 @@ const Login = () => {
 			setMessage("Login successful.");
             localStorage.setItem("auth-token", response.data.token)
             localStorage.setItem("loggedIn",true)
+			navigate("/home", { replace: true });
+
 		} catch (error) {
 			setMessage(error.response?.data?.message || "Unable to log in.");
 		}
