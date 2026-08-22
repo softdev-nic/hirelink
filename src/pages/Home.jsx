@@ -23,7 +23,7 @@ function Home() {
 	const getData = async () => {
         try{
 
-            const response = await publicAPI.get('/api/get-companies')
+            const response = await publicAPI.get('/api/get-companies/approved')
             setMails(response.data)
             console.log(response)
         }catch(error)
