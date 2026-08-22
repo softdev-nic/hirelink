@@ -24,7 +24,8 @@ function Home() {
         try{
 
             const response = await publicAPI.get('/api/get-companies/approved')
-            setMails(response.data)
+            setMails(response.data.companies)
+			console.log(response.data.count)
             console.log(response)
         }catch(error)
         {
