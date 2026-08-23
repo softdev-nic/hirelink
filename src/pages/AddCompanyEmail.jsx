@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { publicAPI } from "../Services/API";
+import GeneralPopUp from "../component/GeneralPopUp";
 function AddCompanyEmail() {
 	const [companyName, setCompanyName] = useState("");
 	const [email, setEmail] = useState("");
+	const [notification,setNotification] = React.useState({show:false,message:"", type:""})
 
 	const handleSubmit = async(e) => {
 		e.preventDefault();
       try{
         const response = await publicAPI.post("/api/add-company",{companyName,email})
+		setNotification({show:true, message:"email added successfully", type:"success"})
       }catch(error){
         console.log({error})
+		setNotification({show:true, message:error.message||error, type:"error"})
+
       }
 		
 	};
@@ -59,6 +64,11 @@ function AddCompanyEmail() {
 						</button>
 					</form>
 				</div>
+				{
+					notification.show&&(
+						<GeneralPopUp message={notification.message} type={notification.type} duration={3000}/>
+					)
+				}
 			</div>
 		</main>
 	);

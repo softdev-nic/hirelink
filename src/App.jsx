@@ -6,6 +6,7 @@ import ResetPassword from "./pages/reg/ReserPassword";
 import Home from "./pages/Home";
 import AddCompanyEmail from "./pages/AddCompanyEmail";
 import { Navigate, Route, Routes } from "react-router-dom";
+import AddTemplate from "./pages/AddTemplate";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -36,6 +37,7 @@ function App() {
       <Route path="/reset-password/:token" element={<ResetPassword />} />
        <Route path="/post-email" element={<AddCompanyEmail/>}/>
       <Route path="/home" element={<Home />} />
+      <Route path="/add-template" element={<AddTemplate/>}/>
     </Routes>
   );
 }

@@ -12,6 +12,8 @@ function Home() {
 	const [deleteConfirm, setDeleteConfirm] = React.useState({ show: false, mailId: null });
 	const [notification, setNotification] = React.useState({ show: false, message: "", type: "" });
     const [loggedIn,setLoggedIn] = React.useState(false)
+	const [newStatus,setStatus] = React.useState("approved")
+	const [template,setTemplate] = React.useState()
 	useEffect(() => {
     const loggedIn = localStorage.getItem("loggedIn");
 
@@ -20,7 +22,19 @@ function Home() {
     }
 }, []);
   
-	const getData = async () => {
+   const getTemplate = async(req,res)=>{
+	try{
+
+		const response = await publicAPI.get("/api/template/get")
+		const {template,email} = response.data
+		 
+		setTemplate({template,email})
+	   console.log(template)
+	}catch(error){
+		console.log(error)
+	}
+   }
+	const getData = async (mailId) => {
         try{
 
             const response = await publicAPI.get('/api/get-companies/approved')
@@ -33,10 +47,11 @@ function Home() {
         }
 
 	};
-
+     
 	React.useEffect(() => {
 		getData();
-	}, [mails]);
+		getTemplate()
+	}, []);
     const deleteMail = async(mailId)=>{
 		try{
 
@@ -103,7 +118,9 @@ function Home() {
 									key={mail.id || mail._id || mail.email}
 									mail={mail}
 									showDelete={true}
+									template={template}
 									onDelete={handleDelete}
+									 
 								/>
 							))}
 						</div>
