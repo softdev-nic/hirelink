@@ -2,6 +2,7 @@ import React from "react";
 import { publicAPI } from "../../Services/API";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 const Login = () => {
 	const navigate = useNavigate();
 	const [formData, setFormData] = React.useState({
@@ -9,6 +10,7 @@ const Login = () => {
 		password: "",
 	});
 	const [message, setMessage] = React.useState("");
+	const Navigate = useNavigate()
 
 	const handleChange = (event) => {
 		setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -29,7 +31,7 @@ const Login = () => {
 			setMessage(error.response?.data?.message || "Unable to log in.");
 		}
 	};
-
+    
 	return (
 		<main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-10">
 			<form

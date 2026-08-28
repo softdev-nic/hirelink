@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import AddCompanyEmail from "./pages/AddCompanyEmail";
 import { Navigate, Route, Routes } from "react-router-dom";
 import AddTemplate from "./pages/AddTemplate";
+import OtpVerification from "./pages/OtpVerification";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -38,6 +39,8 @@ function App() {
        <Route path="/post-email" element={<AddCompanyEmail/>}/>
       <Route path="/home" element={<Home />} />
       <Route path="/add-template" element={<AddTemplate/>}/>
+      <Route path="/otp/verify" element={<OtpVerification/>} />
+      
     </Routes>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { publicAPI } from "../../Services/API";
 import { Navigate } from "react-router-dom";
+
 const Registration = () => {
 	const [formData, setFormData] = React.useState({
 		name: "",
@@ -22,7 +23,7 @@ const Registration = () => {
 
           const response = await  publicAPI.post("/api/register", formData)
             console.log(response)
-            Navigate("/login")
+            Navigate("/otp/verify")
         }catch(error){
             
   console.log("Status:", error.response?.status);
