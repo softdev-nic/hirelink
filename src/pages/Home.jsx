@@ -3,10 +3,11 @@ import { publicAPI } from "../Services/API";
 import Mail from "../component/Mail";
 import GeneralPopUp from "../component/GeneralPopUp";
 import Navbar from "../component/Navbar";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import useModeratorStore from "../store/moderatorStore"
 
 function Home() {
+	
 	const navigate = useNavigate()
 	const [mails, setMails] = React.useState([]);
 	const [deleteConfirm, setDeleteConfirm] = React.useState({ show: false, mailId: null });
@@ -14,9 +15,10 @@ function Home() {
     const [loggedIn,setLoggedIn] = React.useState(false)
 	const [newStatus,setStatus] = React.useState("approved")
 	const [template,setTemplate] = React.useState()
+	const isModerator = useModeratorStore((state)=>state.isModerator)
 	useEffect(() => {
     const loggedIn = localStorage.getItem("loggedIn");
-
+     console.log(isModerator)
     if (loggedIn !== "true") {
         navigate("/login", { replace: true });
     }
@@ -97,8 +99,9 @@ function Home() {
 					<span className="rounded-full bg-white px-3 py-1 text-sm text-slate-600 shadow-sm">
 						{mails.length} mails
 					</span>
+					{isModerator&&(<Link to="/moderator-desk">Moderator Desk</Link>)}
 				</header>
-
+                  
 				<section className="overflow-hidden rounded-lg bg-white shadow-md">
 					<div className="border-b px-6 py-4">
 						<h2 className="font-semibold text-slate-900">Inbox</h2>
