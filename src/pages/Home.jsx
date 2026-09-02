@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { publicAPI } from "../Services/AP I";
+import { publicAPI } from "../Services/API";
 import Mail from "../component/Mail";
 import GeneralPopUp from "../component/GeneralPopUp";
 import Navbar from "../component/Navbar";
