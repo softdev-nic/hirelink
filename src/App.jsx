@@ -19,7 +19,7 @@ function App(){
   React.useEffect(()=>{
     const loggedIn = localStorage.getItem("loggedIn");
     setIsLoggedIn(loggedIn==="true");
-    if(loggedIn==="true")  
+    
 
    
   },[checkModerator]);
