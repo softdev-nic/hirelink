@@ -1,7 +1,5 @@
-
-import { create } from "zustand";
-import { publicAPI } from "../Services/API";
-
+import { create } from 'zustand';
+import { publicAPI } from "../Services/API"
 const useModeratorStore = create((set) => ({
   isModerator: false,
   checkingModerator: false,
@@ -36,7 +34,7 @@ const useModeratorStore = create((set) => ({
         checkingModerator: false,
         moderatorChecked: true,
       });
-
+      
       return false;
     }
   },

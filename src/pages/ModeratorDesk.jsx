@@ -47,7 +47,7 @@ function ModeratorDesk() {
           newStatus,
         }
       );
-
+      console.log(useModeratorStore.getState().isModerator);
       console.log("Status changed:", response.data);
 
       // Refresh the list after changing status
