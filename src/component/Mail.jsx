@@ -23,7 +23,7 @@ function Mail({ mail, showDelete = false, onDelete,template }) {
 					</h3>
 				</div>
 				<time className="text-sm text-slate-500">
-					{mail.date || mail.createdAt || ""}
+					{mail.date?.toString().split("T")[0] || mail.createdAt?.toString().split("T")[0] || ""}
 				</time>
 			</div>
  
